@@ -19,70 +19,41 @@
     <div class="wrap">
       <a href="index.html">Home</a>
       <a href="offers.html">Offers</a>
-      <a href="stack.html">Sales stack</a>
+      <a href="operators.html">Operators</a>
+      <a href="stack.html">Stack</a>
       <a href="outbound-tools.html">Outbound</a>
       <a href="crm-tools.html" aria-current="page">CRM</a>
+      <a href="email-sequencers.html">Sequences</a>
+      <a href="calculator/">Calculator</a>
       <a href="affiliates.html">Affiliates</a>
-      <a href="operators.html">Operators</a>
       <a href="contact.html">Contact</a>
     </div>
   </nav>
   <main>
     <p class="lede">MoneyBot treats CRM as routing, not a pipeline board. A lead that cannot be named by email subject and a live SKU is not a lead.</p>
-
     <h2>System of record</h2>
     <table>
       <thead><tr><th>Layer</th><th>What it stores</th><th>What it does not store</th></tr></thead>
       <tbody>
-        <tr>
-          <td>Gmail</td>
-          <td>Thread, subject, buyer address. Agent replies in-thread.</td>
-          <td>A stage named “qualified.” Newsletters. Catalog mail on this host.</td>
-        </tr>
-        <tr>
-          <td>Stripe live</td>
-          <td>Paid customer email, SKU, amount. Fulfillment key.</td>
-          <td>Unpaid “opportunities.” Edge Club while Field Practice is still unpaid.</td>
-        </tr>
-        <tr>
-          <td>Stream logs</td>
-          <td>One row per inbound: time, intent, action, amount.</td>
-          <td>Personal mail. Tokens. Lab hostnames.</td>
-        </tr>
+        <tr><td>Gmail</td><td>Thread, subject, buyer address. Agent replies in-thread.</td><td>A stage named “qualified.” Newsletters. Catalog mail on this host.</td></tr>
+        <tr><td>Stripe live</td><td>Paid customer email, SKU, amount. Fulfillment key.</td><td>Unpaid “opportunities.” Edge Club while Field Practice is still unpaid.</td></tr>
+        <tr><td>Stream logs</td><td>One row per inbound: time, intent, action, amount.</td><td>Personal mail. Tokens. Lab hostnames.</td></tr>
       </tbody>
     </table>
-
     <h2>How a record is created</h2>
     <ol>
       <li>Buyer pays a live link on <a href="offers.html">Offers</a>, or a partner sends <code>AFFILIATE:</code> with a named domain.</li>
-      <li>Matching subject hits the inbox: <code>KIT:</code> <code>CLINIC:</code> <code>PACK:</code> <code>BRIEF:</code> <code>CAMERA:</code> <code>REVIEW:</code> <code>LICENSE:</code>. Full map on <a href="contact.html">Contact</a>.</li>
+      <li>Matching subject hits the inbox. Full map on <a href="contact.html">Contact</a>.</li>
       <li>Agent reads the whole message. Ignores receipts that are not a Recursed SKU.</li>
       <li>If paid, fulfill the file. If unpaid, send the checkout. If traces are missing, ask for the packet — do not start the 48-hour clock.</li>
-      <li>Append the stream log. Do not open a second thread.</li>
+      <li>Append the stream log. Do not open a second thread. Mail steps are on <a href="email-sequencers.html">Sequences</a>.</li>
     </ol>
-
-    <h2>Desks that own a row</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>Field Practice</h3>
-        <p>$79 kit and $397 list. Clock starts when the paid intake packet is complete. Jeff is not booked.</p>
-      </article>
-      <article class="card">
-        <h3>Signal</h3>
-        <p>$149 pack after payment only. $495 brief after paid constraints. Pre-buy teams stay here, not on a punch list.</p>
-      </article>
-      <article class="card">
-        <h3>Affiliate intro</h3>
-        <p>First paid intro is logged against the partner. A split is written before the second job. No self-serve portal.</p>
-      </article>
-    </div>
-
     <h2>What this page will not add</h2>
     <ul>
       <li>A public lead form that dumps into a shared spreadsheet.</li>
       <li>A CRM product logo for a tool Recursed does not run.</li>
       <li>Scoring, drip sequences, or a round-robin that assigns Jeff.</li>
-      <li>Catalog / Patreon / merch records. Those desks are separate and stay off this host.</li>
+      <li>Catalog / Patreon / merch records. Those desks stay off this host.</li>
     </ul>
     <p class="note">Partners who need a human signature use <code>LICENSE:</code>. That is the only CRM row that leaves the agent.</p>
   </main>
