@@ -1,38 +1,37 @@
 # Recursed Studios — MoneyBot web
 
-Public B2B affiliate sales-stack site for industrial written work (Field Practice, Signal, partner intros).
+Public B2B affiliate sales-stack site for industrial written work.
 
-This repo is industrial only. No catalog, merch, Patreon adult campaign, or model weights.
+Industrial only. No catalog, merch, Patreon adult campaign, or model weights.
 
 ## Pages
 
 | File | Role |
 |---|---|
-| `index.html` | Landing page |
+| `index.html` | Landing |
 | `offers.html` | Live Stripe SKUs + quoted work |
+| `operators.html` | Buyer path without a call |
 | `stack.html` | Tools the desk actually uses |
 | `outbound-tools.html` | X / Buffer / Gmail outbound rules |
-| `crm-tools.html` | Gmail + Stripe + logs. No invented CRM product |
-| `email-sequencers.html` | Fulfillment threads only. No drip product |
-| `calculator/index.html` | Client-side commission calculator. Partner enters written % |
-| `affiliates.html` | Intro rules. No invented commission rate |
-| `operators.html` | Buyer path without a call |
+| `crm-tools.html` | Gmail + Stripe + logs |
+| `email-sequencers.html` | Fulfillment threads. No drip product |
+| `calculator/index.html` | Client-side commission calculator |
+| `affiliates.html` | Intro rules. No invented rate |
 | `contact.html` | Subject-line router |
 | `css/site.css` | Shared charcoal / copper sheet |
 
-Desk calculator (separate repo): https://github.com/houserwx/moneybot-desk
+SKU router (separate repo): https://github.com/houserwx/moneybot-desk
 
-## GitHub Pages (connector cannot flip this)
+## GitHub Pages
 
-1. Open https://github.com/houserwx/moneybot-web/settings/pages
-2. Source: **Deploy from a branch**
-3. Branch: `main` / folder: `/ (root)`
-4. Save. First build takes 1–2 minutes.
-5. Live URL: https://houserwx.github.io/moneybot-web/
+The connector cannot enable Pages.
 
-Commission calculator after Pages: https://houserwx.github.io/moneybot-web/calculator/
+1. https://github.com/houserwx/moneybot-web/settings/pages
+2. Deploy from a branch → `main` / `/ (root)`
+3. https://houserwx.github.io/moneybot-web/
+4. Calculator: https://houserwx.github.io/moneybot-web/calculator/
 
-## Offers linked from the site
+## Live offers
 
 | SKU | Checkout |
 |---|---|
