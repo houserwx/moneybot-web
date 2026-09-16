@@ -8,9 +8,10 @@ This repo is industrial only. No catalog, merch, Patreon adult campaign, or mode
 
 | File | Role |
 |---|---|
-| `index.html` | Positioning |
+| `index.html` | Landing page |
 | `offers.html` | Live Stripe SKUs + quoted work |
 | `stack.html` | Tools the desk actually uses |
+| `outbound-tools.html` | X / Buffer / Gmail outbound rules |
 | `affiliates.html` | Intro rules. No invented commission rate |
 | `operators.html` | Buyer path without a call |
 | `contact.html` | Subject-line router |
