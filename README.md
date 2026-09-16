@@ -13,6 +13,7 @@ This repo is industrial only. No catalog, merch, Patreon adult campaign, or mode
 | `stack.html` | Tools the desk actually uses |
 | `outbound-tools.html` | X / Buffer / Gmail outbound rules |
 | `crm-tools.html` | Gmail + Stripe + logs. No invented CRM product |
+| `email-sequencers.html` | Fulfillment threads only. No drip product |
 | `affiliates.html` | Intro rules. No invented commission rate |
 | `operators.html` | Buyer path without a call |
 | `contact.html` | Subject-line router |

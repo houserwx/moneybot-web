@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Email sequencers — MoneyBot</title>
+  <meta name="description" content="Recursed Studios does not run a drip sequencer. Industrial mail is one thread per buyer after a Stripe event or a named subject." />
+  <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="mark">Recursed Studios · MoneyBot</div>
+      <h1>Email sequencers</h1>
+      <p>There is no Mailchimp, Instantly, or seven-step nurture on this desk. A sequence is a thread that ends when the file is delivered or the buyer goes silent.</p>
+    </div>
+  </header>
+  <nav>
+    <div class="wrap">
+      <a href="index.html">Home</a>
+      <a href="offers.html">Offers</a>
+      <a href="stack.html">Sales stack</a>
+      <a href="outbound-tools.html">Outbound</a>
+      <a href="crm-tools.html">CRM</a>
+      <a href="email-sequencers.html" aria-current="page">Sequences</a>
+      <a href="affiliates.html">Affiliates</a>
+      <a href="operators.html">Operators</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <main>
+    <p class="lede">MoneyBot mail is reactive. Stripe fires, or a subject hits Gmail. The agent answers that thread. It does not warm a list.</p>
+
+    <h2>Sequences that actually exist</h2>
+    <table>
+      <thead><tr><th>Trigger</th><th>Step 1</th><th>Step 2</th><th>Stop</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Paid $79 kit</td>
+          <td>Email the commissioning kit to the Stripe address.</td>
+          <td>If they return with traces, point at the $397 list.</td>
+          <td>File delivered. No day-3 bump.</td>
+        </tr>
+        <tr>
+          <td>Paid $397 list</td>
+          <td>Ask for the intake packet if it is missing.</td>
+          <td>Start the 48-hour clock only when the packet is complete. Email the punch list.</td>
+          <td>List delivered. License talk is a new subject.</td>
+        </tr>
+        <tr>
+          <td>Paid $149 pack</td>
+          <td>Email the Decision Pack. Never send it unpaid.</td>
+          <td>If constraints are unique, quote the $495 brief.</td>
+          <td>Pack delivered.</td>
+        </tr>
+        <tr>
+          <td>Paid $495 brief</td>
+          <td>Collect intake fields.</td>
+          <td>Write and email the brief inside 48 hours after fields arrive.</td>
+          <td>Brief delivered.</td>
+        </tr>
+        <tr>
+          <td>Unpaid inbound</td>
+          <td>One reply with the correct checkout and the subject to use.</td>
+          <td>Nothing else unless they write back.</td>
+          <td>No second chase mail.</td>
+        </tr>
+        <tr>
+          <td><code>AFFILIATE:</code></td>
+          <td>Log the named buyer and SKU.</td>
+          <td>Written split only before the second paid job.</td>
+          <td>See <a href="affiliates.html">Affiliates</a>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Voice rules</h2>
+    <ul>
+      <li>Short. Technical. In-thread.</li>
+      <li>No calendar link. No “quick call.”</li>
+      <li>One CTA: a live Stripe URL or a subject line on <a href="contact.html">Contact</a>.</li>
+      <li>Do not attach Field Practice files to a Signal buyer, or the pack to an unpaid thread.</li>
+    </ul>
+
+    <h2>What will not be built from this page</h2>
+    <ul>
+      <li>A purchased sequencer, warm-up pool, or scraped-list campaign.</li>
+      <li>A 5-email “education drip” that restates the landing page.</li>
+      <li>Any sequence that assigns Jeff a slot.</li>
+      <li>Catalog, merch, or Patreon drips on this host.</li>
+    </ul>
+    <p class="note">Records of who was mailed live on <a href="crm-tools.html">CRM tools</a>. Public posts live on <a href="outbound-tools.html">Outbound</a>.</p>
+  </main>
+  <footer>
+    Recursed Studios · source <a href="https://github.com/houserwx/moneybot-web">houserwx/moneybot-web</a>
+  </footer>
+</body>
+</html>
