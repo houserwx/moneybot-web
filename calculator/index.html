@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Commission calculator — MoneyBot</title>
+  <meta name="description" content="Client-side calculator for a written Recursed Studios affiliate split. No published default rate." />
+  <link rel="stylesheet" href="../css/site.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="mark">Recursed Studios · MoneyBot</div>
+      <h1>Commission calculator</h1>
+      <p>Runs in the browser. Enter the split that is already on paper. This page does not invent a rate.</p>
+    </div>
+  </header>
+  <nav>
+    <div class="wrap">
+      <a href="../index.html">Home</a>
+      <a href="../offers.html">Offers</a>
+      <a href="../stack.html">Sales stack</a>
+      <a href="../outbound-tools.html">Outbound</a>
+      <a href="../crm-tools.html">CRM</a>
+      <a href="../email-sequencers.html">Sequences</a>
+      <a href="../affiliates.html">Affiliates</a>
+      <a href="./index.html" aria-current="page">Calculator</a>
+      <a href="../operators.html">Operators</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </nav>
+  <main>
+    <p class="lede">Until a split is signed, treat an intro as a courtesy referral. Catalog, merch, Patreon, and the $19 prompt pack are not in this program. Edge Club is not for sale.</p>
+
+    <h2>Written split</h2>
+    <label for="rate">Partner cut of paid industrial SKU (%)</label>
+    <input id="rate" type="number" min="0" max="50" step="0.5" inputmode="decimal" placeholder="only the number on paper" />
+    <p class="note">Cap in this widget is 50%. A higher number is a custom license conversation, not this calculator.</p>
+
+    <h2>Paid units this month</h2>
+    <div class="grid">
+      <div>
+        <label for="kit">$79 kits</label>
+        <input id="kit" type="number" min="0" step="1" value="0" />
+      </div>
+      <div>
+        <label for="list">$397 punch lists</label>
+        <input id="list" type="number" min="0" step="1" value="0" />
+      </div>
+      <div>
+        <label for="pack">$149 packs</label>
+        <input id="pack" type="number" min="0" step="1" value="0" />
+      </div>
+      <div>
+        <label for="brief">$495 briefs</label>
+        <input id="brief" type="number" min="0" step="1" value="0" />
+      </div>
+      <div>
+        <label for="review">$1,250 reviews</label>
+        <input id="review" type="number" min="0" step="1" value="0" />
+      </div>
+    </div>
+    <p class="note">License work from $2,500 is qualified here and signed by a human. Do not run it through this split widget.</p>
+
+    <p><button class="btn" type="button" id="run" style="border:0;cursor:pointer;">Calculate</button></p>
+    <div id="out" hidden></div>
+  </main>
+  <footer>
+    Recursed Studios · source <a href="https://github.com/houserwx/moneybot-web">houserwx/moneybot-web</a> · rules <a href="../affiliates.html">affiliates.html</a>
+  </footer>
+  <script>
+    const SKUS = [
+      { id: "kit", name: "$79 commissioning kit", price: 79 },
+      { id: "list", name: "$397 punch list", price: 397 },
+      { id: "pack", name: "$149 SoC + master pack", price: 149 },
+      { id: "brief", name: "$495 stack brief", price: 495 },
+      { id: "review", name: "$1,250 review", price: 1250 }
+    ];
+
+    function n(id) {
+      const v = Number(document.getElementById(id).value);
+      return Number.isFinite(v) ? Math.max(0, v) : 0;
+    }
+
+    function money(v) {
+      return v.toLocaleString(undefined, { style: "currency", currency: "USD" });
+    }
+
+    function run() {
+      const rate = n("rate");
+      const el = document.getElementById("out");
+      el.hidden = false;
+      if (!document.getElementById("rate").value) {
+        el.innerHTML = "<p>Enter the written partner percent first. This page will not assume one.</p>";
+        return;
+      }
+      if (rate > 50) {
+        el.innerHTML = "<p>Rate above 50% is out of range for this widget. Email <code>AFFILIATE:</code>.</p>";
+        return;
+      }
+      const frac = rate / 100;
+      let gross = 0;
+      let rows = "";
+      SKUS.forEach(function (sku) {
+        const units = Math.floor(n(sku.id));
+        const line = units * sku.price;
+        gross += line;
+        const cut = line * frac;
+        rows += "<tr><td>" + sku.name + "</td><td>" + units + "</td><td>" +
+          money(line) + "</td><td>" + money(cut) + "</td></tr>";
+      });
+      const partner = gross * frac;
+      const studio = gross - partner;
+      el.innerHTML =
+        "<p><strong>Gross paid industrial</strong> " + money(gross) +
+        " · <strong>partner @ " + rate + "%</strong> " + money(partner) +
+        " · <strong>studio remainder</strong> " + money(studio) + "</p>" +
+        "<table><thead><tr><th>SKU</th><th>Units</th><th>Gross</th><th>Partner cut</th></tr></thead><tbody>" +
+        rows + "</tbody></table>" +
+        "<p class=\"note\">Client-side only. Stripe fees are not deducted here. First paid intro from a new partner is logged before a split is offered — see <a href=\"../affiliates.html\">affiliate rules</a>.</p>";
+    }
+
+    document.getElementById("run").addEventListener("click", run);
+    ["rate", "kit", "list", "pack", "brief", "review"].forEach(function (id) {
+      document.getElementById(id).addEventListener("change", run);
+      document.getElementById(id).addEventListener("input", run);
+    });
+  </script>
+</body>
+</html>

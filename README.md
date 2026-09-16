@@ -14,6 +14,7 @@ This repo is industrial only. No catalog, merch, Patreon adult campaign, or mode
 | `outbound-tools.html` | X / Buffer / Gmail outbound rules |
 | `crm-tools.html` | Gmail + Stripe + logs. No invented CRM product |
 | `email-sequencers.html` | Fulfillment threads only. No drip product |
+| `calculator/index.html` | Client-side commission calculator. Partner enters written % |
 | `affiliates.html` | Intro rules. No invented commission rate |
 | `operators.html` | Buyer path without a call |
 | `contact.html` | Subject-line router |
@@ -28,6 +29,8 @@ Desk calculator (separate repo): https://github.com/houserwx/moneybot-desk
 3. Branch: `main` / folder: `/ (root)`
 4. Save. First build takes 1–2 minutes.
 5. Live URL: https://houserwx.github.io/moneybot-web/
+
+Commission calculator after Pages: https://houserwx.github.io/moneybot-web/calculator/
 
 ## Offers linked from the site
 
